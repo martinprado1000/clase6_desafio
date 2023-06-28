@@ -31,7 +31,7 @@ app.get("/products", (req, res) => {
       res.send(dataLimit);
     }
   });
-});
+}); 
 
 app.get("/products/:pid", (req, res) => {
   const pid = parseInt(req.params.pid);
