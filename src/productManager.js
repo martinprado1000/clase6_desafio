@@ -6,7 +6,6 @@ class ProductManager {
     const ex = async () => {
       try {
         await fs.promises.access(this.path);
-        console.log("Archivo existente");
       } catch (e) {
         console.log("El archivo no existe");
         const arr = JSON.stringify([]);
@@ -25,23 +24,25 @@ class ProductManager {
       return productsObj;
     } catch (e) {
       console.log("Error al leer el archivo");
+      return {"Error": "Error al leer el archivo"}
     }
   }
 
   async getProductById(id) {
     try {
       if (!id) {
-        console.log("Debe enviar un ID")
-        return "Error: Debe enviar un ID";
+        console.log("Debe enviar un ID valido")
+        return {"Error": "Debe enviar un ID valido"};
       }
-      const prod = await this.getProducts();
-      const exist = prod.findIndex((ex)=>ex.id==id)
-      if (exist === -1) return console.log(`El producto con id: ${id} no existe`)
-      const prodId = prod.find((p) => p.id == id);
-      console.log(prodId)
+      const productos = await this.getProducts();
+      const exist = productos.findIndex((ex)=>ex.id==id)
+      if (exist === -1) return {"Error":`El producto con id: ${id} no existe`}
+      const prodId = productos.find((p) => p.id == id);
+      //console.log(prodId)
       return prodId;
     } catch (e) {
-      console.log("Erro al obtener el producto");
+      console.log("Error al leer el archivo");
+      return {"Error": "Error al leer el archivo"}
     }
   }
 
@@ -118,22 +119,14 @@ class ProductManager {
     }
   }
 }
-//-------------------------------------------------------------------------------------
-
+//------------------Instacia-----------------------------
 const manager = new ProductManager("products.json");
 
-// Obtengo productos
-//manager.getProducts().then((d)=>console.log(d)); 
-const getP = (async()=>{
-  try{
-    const get = await manager.getProducts()
-    console.log(get)
-  } catch(e){
-    console.log(e)
-  }
-})
-//getP();
+//-----------------Obtener productos----------------------
+//manager.getProducts().then((data)=>{return data})
+//manager.getProducts().then((data)=>console.log(data))
 
+//---------------Agregar producto-------------------------
 const data = {
   title: "Producto 1",
   description: "Desc prod1",
@@ -144,8 +137,12 @@ const data = {
 };
 //manager.addProduct(data);
 
+//--------------Obtener producto por ID-------------------
 //manager.getProductById(9);
+//manager.getProductById().then((data)=>{return data})
 
+//
+//--------------Actualizar--------------------------------
 const data2 = {
   title: "Producto 99999999",
   description: "Desc prod999999999",
@@ -154,6 +151,11 @@ const data2 = {
   code: "abc123",
   stock: 200,
 };
-manager.updateProduct(3,data2);
+//manager.updateProduct(3,data2);
 
+//-------------Borrar--------------------------------------
 //manager.deleteProduct(9)
+
+module.exports = {
+  manager
+};

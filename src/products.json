@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Producto 1",
+    "description": "Desc prod1",
+    "price": 111111,
+    "thumbnail": "www.image1.com",
+    "code": "abc111",
+    "stock": 111
+  },
+  {
+    "id": 2,
+    "title": "Producto 2",
+    "description": "Desc prod2",
+    "price": 222222,
+    "thumbnail": "www.image2.com",
+    "code": "abc222",
+    "stock": 222
+  },
+  {
+    "id": 3,
+    "title": "Producto 3",
+    "description": "Desc prod3",
+    "price": 333333,
+    "thumbnail": "www.image3.com",
+    "code": "abc333",
+    "stock": 333
+  },
+  {
+    "id": 4,
+    "title": "Producto 4",
+    "description": "Desc prod4",
+    "price": 4444,
+    "thumbnail": "www.image4.com",
+    "code": "abc444",
+    "stock": 444
+  },
+  {
+    "id": 5,
+    "title": "Producto 5",
+    "description": "Desc prod5",
+    "price": 55555,
+    "thumbnail": "www.image5.com",
+    "code": "abc5",
+    "stock": 555
+  },
+  {
+    "id": 6,
+    "title": "Producto 6",
+    "description": "Desc prod6",
+    "price": 666666,
+    "thumbnail": "www.image6.com",
+    "code": "abc666",
+    "stock": 666
+  },
+  {
+    "id": 7,
+    "title": "Producto 7",
+    "description": "Desc prod7",
+    "price": 77777,
+    "thumbnail": "www.image7.com",
+    "code": "abc777",
+    "stock": 777
+  },
+  {
+    "id": 8,
+    "title": "Producto 8",
+    "description": "Desc prod8",
+    "price": 88888,
+    "thumbnail": "www.image8.com",
+    "code": "abc8888",
+    "stock": 8888
+  },
+  {
+    "id": 9,
+    "title": "Producto 9",
+    "description": "Desc prod9",
+    "price": 99999,
+    "thumbnail": "www.image9.com",
+    "code": "abc999999",
+    "stock": 999
+  },
+  {
+    "id": 10,
+    "title": "Producto 10",
+    "description": "Desc prod10",
+    "price": 10101010101,
+    "thumbnail": "www.image10.com",
+    "code": "abc101010",
+    "stock": 10101010
+  }
+]
