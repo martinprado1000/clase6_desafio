@@ -20,7 +20,6 @@ class ProductManager {
     try {
       let products = await fs.promises.readFile(this.path, "utf-8");
       const productsObj = await JSON.parse(products);
-      //console.log(productsObj)
       return productsObj;
     } catch (e) {
       console.log("Error al leer el archivo");
@@ -38,7 +37,6 @@ class ProductManager {
       const exist = productos.findIndex((ex)=>ex.id==id)
       if (exist === -1) return {"Error":`El producto con id: ${id} no existe`}
       const prodId = productos.find((p) => p.id == id);
-      //console.log(prodId)
       return prodId;
     } catch (e) {
       console.log("Error al leer el archivo");
@@ -89,33 +87,33 @@ class ProductManager {
 
   async updateProduct(id,{title,description,price,thumbnail,code,stock}) {
     try {
-      if (
-        !id ||
-        !title ||
-        !description ||
-        !price ||
-        !thumbnail ||
-        !code ||
-        !stock
-      ) {
-        return "Error: Campos incorrectos";
-      }
+      // if (
+      //   !id ||
+      //   !title ||
+      //   !description ||
+      //   !price ||
+      //   !thumbnail ||
+      //   !code ||
+      //   !stock
+      // ) {
+      //   return "Error: Campos incorrectos";
+      // }
       const prod = await this.getProducts();
       const productIndex = prod.findIndex((product) => product.id === id);
       if (productIndex === -1) return console.log(`El producto con id: ${id} no existe`)
 
-      prod[productIndex].title = title;
-      prod[productIndex].description = description;
-      prod[productIndex].price = price;
-      prod[productIndex].thumbnail = thumbnail;
-      prod[productIndex].code = code;
-      prod[productIndex].stock = stock;
+      prod[productIndex].title = title || prod[productIndex].title;
+      prod[productIndex].description = description || prod[productIndex].description;
+      prod[productIndex].price = price || prod[productIndex].price;
+      prod[productIndex].thumbnail = thumbnail || prod[productIndex].thumbnail;
+      prod[productIndex].code = code || prod[productIndex].code;
+      prod[productIndex].stock = stock || prod[productIndex].stock;
 
       console.log(`El producto con id: ${id} se edito correctamente`)
       return fs.promises.writeFile(this.path, JSON.stringify(prod, null, 2));
       
     } catch (e) {
-      console.log("Erro al editar el producto");
+      return "Erro al editar el producto";
     }
   }
 }
@@ -157,5 +155,6 @@ const data2 = {
 //manager.deleteProduct(9)
 
 module.exports = {
+  //ProductManager
   manager
 };

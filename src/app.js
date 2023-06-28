@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const port = 8080;
-const { manager } = require("./productManager");
+const { manager  } = require('./productManager')
+
+//const manager = new ProductManager("products.json");
 
 app.get("/", (req, res) => {
   const limitInt = parseInt(req.query.limit);
   //console.log(limitInt);
-  manager.getProducts().then((d) => {
+    manager.getProducts().then((d) => {
     const data = d;
     if (!limitInt) res.send(data);
     else {
@@ -20,7 +22,7 @@ app.get("/", (req, res) => {
 app.get("/products", (req, res) => {
   const limitInt = parseInt(req.query.limit);
   //console.log(limitInt);
-  manager.getProducts().then((d) => {
+    manager.getProducts().then((d) => {
     const data = d;
     if (!limitInt) res.send(data);
     else {
@@ -33,7 +35,7 @@ app.get("/products", (req, res) => {
 
 app.get("/products/:pid", (req, res) => {
   const pid = parseInt(req.params.pid);
-  manager.getProductById(pid).then((d) => {
+    manager.getProductById(pid).then((d) => {
     const data = d;
     res.send(data);
   });
