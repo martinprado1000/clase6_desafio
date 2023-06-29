@@ -118,25 +118,23 @@ class ProductManager {
   }
 }
 //------------------Instacia-----------------------------
-const manager = new ProductManager("products.json");
+//const manager = new ProductManager("products.json");
 
 //-----------------Obtener productos----------------------
 //manager.getProducts().then((data)=>{return data})
-//manager.getProducts().then((data)=>console.log(data))
 
 //---------------Agregar producto-------------------------
-const data = {
-  title: "Producto 1",
-  description: "Desc prod1",
-  price: 22220,
-  thumbnail: "www.image.com",
-  code: "abc123",
-  stock: 200,
-};
+// const data = {
+//   title: "Producto 1",
+//   description: "Desc prod1",
+//   price: 22220,
+//   thumbnail: "www.image.com",
+//   code: "abc123",
+//   stock: 200,
+// };
 //manager.addProduct(data);
 
 //--------------Obtener producto por ID-------------------
-//manager.getProductById(9);
 //manager.getProductById().then((data)=>{return data})
 
 //
@@ -149,12 +147,12 @@ const data2 = {
   code: "abc123",
   stock: 200,
 };
-//manager.updateProduct(3,data2);
+//manager.updateProduct(3,data2)
 
 //-------------Borrar--------------------------------------
 //manager.deleteProduct(9)
 
 module.exports = {
-  //ProductManager
-  manager
+  ProductManager
+  //manager
 };
